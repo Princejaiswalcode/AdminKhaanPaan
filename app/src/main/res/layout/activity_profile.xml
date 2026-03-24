@@ -74,7 +74,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:hint="lorem ipsum"
+            android:hint="Prince"
             android:inputType="text"
             android:paddingStart="10dp" />
     </LinearLayout>
@@ -136,7 +136,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:hint="example@gmail.com"
+            android:hint="prince@gmail.com"
             android:inputType="textEmailAddress"
             android:paddingStart="10dp" />
     </LinearLayout>
@@ -167,7 +167,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:hint="123456789"
+            android:hint="930224...."
             android:inputType="phone"
             android:paddingStart="10dp" />
     </LinearLayout>
