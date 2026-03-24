@@ -6,10 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.admin.databinding.ActivityOrderdispatchBinding
+import com.example.admin.databinding.ActivityProfileBinding
 
 class profileActivity : AppCompatActivity() {
-    private val binding: ActivityOrderdispatchBinding by lazy {
-        ActivityOrderdispatchBinding.inflate(layoutInflater)
+    private val binding: ActivityProfileBinding by lazy {
+        ActivityProfileBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

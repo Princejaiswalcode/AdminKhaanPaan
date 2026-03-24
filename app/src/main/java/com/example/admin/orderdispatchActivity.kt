@@ -5,6 +5,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.admin.adapter.DeliveryAdapter
 import com.example.admin.databinding.ActivityAllitemBinding
 import com.example.admin.databinding.ActivityOrderdispatchBinding
 
@@ -17,6 +19,19 @@ class orderdispatchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
+        val costomerName=arrayListOf(
+            "Prince Jaiswal",
+            "Millind AMb",
+            "Mustaffa"
+        )
+        val moneystatus=arrayListOf(
+            "received",
+            "Notreceived",
+            "Pending"
+        )
+        val adapter= DeliveryAdapter(costomerName,moneystatus)
+        binding.deliveryrecyclerview.adapter=adapter
+        binding.deliveryrecyclerview.layoutManager= LinearLayoutManager(this)
         binding.backbutton.setOnClickListener {
             finish()
         }
