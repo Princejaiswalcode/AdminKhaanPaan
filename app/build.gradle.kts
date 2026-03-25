@@ -1,13 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
-    namespace = "com.example.admin"
+    namespace = "com.example.adminAppKhanPaan"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.admin"
+        applicationId = "com.example.adminAppKhanPaan"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -44,6 +45,13 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.firebase.auth)
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid)
+    implementation(libs.firebase.database)
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("com.google.firebase:firebase-auth")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

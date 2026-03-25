@@ -1,11 +1,10 @@
-package com.example.admin.adapter
-import android.R
+package com.example.adminAppKhanPaan.adapter
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.admin.databinding.DeliveryitemBinding
+import com.example.adminAppKhanPaan.databinding.DeliveryitemBinding
 
 class DeliveryAdapter(private val costomerNames: ArrayList<String>,private val moneystatus: ArrayList<String>) : RecyclerView.Adapter<DeliveryAdapter.DeliveryViewHolder>() {
 

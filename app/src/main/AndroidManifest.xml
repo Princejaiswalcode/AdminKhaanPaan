@@ -12,13 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Admin">
         <activity
-            android:name=".AdminProfileActivity"
+            android:name=".profileActivity"
             android:exported="false" />
         <activity
             android:name=".orderdispatchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".profileActivity"
             android:exported="false" />
         <activity
             android:name=".CreateNewAdminActivity"

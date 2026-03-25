@@ -1,4 +1,4 @@
-package com.example.admin
+package com.example.adminAppKhanPaan
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,9 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.admin.adapter.DeliveryAdapter
-import com.example.admin.databinding.ActivityAllitemBinding
-import com.example.admin.databinding.ActivityOrderdispatchBinding
+import com.example.adminAppKhanPaan.adapter.DeliveryAdapter
+import com.example.adminAppKhanPaan.databinding.ActivityOrderdispatchBinding
 
 class orderdispatchActivity : AppCompatActivity() {
     private val binding: ActivityOrderdispatchBinding by lazy {

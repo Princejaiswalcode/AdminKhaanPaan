@@ -1,4 +1,4 @@
-package com.example.admin
+package com.example.adminAppKhanPaan
 
 import android.content.Intent
 import android.os.Bundle

@@ -1,9 +1,9 @@
-package com.example.admin.adapter
+package com.example.adminAppKhanPaan.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.admin.databinding.ItemItemBinding
+import com.example.adminAppKhanPaan.databinding.ItemItemBinding
 
 class AddItemAdapter(private val MenuItemName: ArrayList<String>,private val MenuItemPrice: ArrayList<String>,private val MenuItemImage: ArrayList<Int>) : RecyclerView.Adapter<AddItemAdapter.AddItemViewHolder>() {
 

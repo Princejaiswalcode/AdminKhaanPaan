@@ -1,4 +1,4 @@
-package com.example.admin
+package com.example.adminAppKhanPaan
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.admin.databinding.ActivityMainBinding
+import com.example.adminAppKhanPaan.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {

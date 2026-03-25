@@ -1,4 +1,4 @@
-package com.example.admin
+package com.example.adminAppKhanPaan
 
 import org.junit.Test
 

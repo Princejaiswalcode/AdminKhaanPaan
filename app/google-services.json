@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "693380119693",
+    "firebase_url": "https://adminapp-906cd-default-rtdb.firebaseio.com",
+    "project_id": "adminapp-906cd",
+    "storage_bucket": "adminapp-906cd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693380119693:android:8b086ad412f71a82cdf6c4",
+        "android_client_info": {
+          "package_name": "com.example.adminAppKhanPaan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693380119693-mn5jcsspuggrlds91d7pbt1dnv366tf2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adminAppKhanPaan",
+            "certificate_hash": "4182e63eb58cdba70b12d8eff5e02e56f04b6955"
+          }
+        },
+        {
+          "client_id": "693380119693-brh43vc6anrrvqgi9seclaort19udf3g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOJU906qRrWK4zhmAvuOh_O0rDVu-cE6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693380119693-brh43vc6anrrvqgi9seclaort19udf3g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

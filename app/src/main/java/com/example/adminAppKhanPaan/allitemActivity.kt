@@ -1,4 +1,4 @@
-package com.example.admin
+package com.example.adminAppKhanPaan
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.admin.databinding.ActivityAllitemBinding
-import com.example.admin.adapter.AddItemAdapter
+import com.example.adminAppKhanPaan.databinding.ActivityAllitemBinding
+import com.example.adminAppKhanPaan.adapter.AddItemAdapter
 class allitemActivity : AppCompatActivity() {
     private val binding: ActivityAllitemBinding by lazy {
         ActivityAllitemBinding.inflate(layoutInflater)
