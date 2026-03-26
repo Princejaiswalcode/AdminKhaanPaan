@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -52,7 +53,13 @@ dependencies {
     implementation(libs.firebase.database)
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation("com.google.firebase:firebase-auth")
+    implementation(platform("io.github.jan-tennert.supabase:bom:3.1.4"))
 
+    implementation("io.github.jan-tennert.supabase:postgrest-kt")   // Database
+    implementation("io.github.jan-tennert.supabase:storage-kt")     // File/Image Storage
+    implementation("io.github.jan-tennert.supabase:auth-kt")        // Authentication
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+    implementation("io.ktor:ktor-client-android:3.1.2")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -11,13 +11,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.adminAppKhanPaan.databinding.ActivityLoginBinding
 
-// ✅ Google Sign-In imports
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 
-// ✅ Firebase imports
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
@@ -38,7 +36,6 @@ class LoginActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
-        // ✅ Configure Google Sign-In
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -46,7 +43,6 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        // ✅ FIXED (was wrong constructor)
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
 
         binding.loginButton.setOnClickListener {
@@ -96,6 +92,15 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        if(currentUser!=null){
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+    }
+
     private val launcher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -117,6 +122,7 @@ class LoginActivity : AppCompatActivity() {
                                 ).show()
 
                                 updateUi(auth.currentUser)
+                                finish()
                             } else {
                                 Toast.makeText(
                                     this,

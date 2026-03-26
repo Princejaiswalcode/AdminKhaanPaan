@@ -50,8 +50,8 @@
                 app:layout_constraintStart_toEndOf="@+id/backbutton"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/enterfoodname"
+            <EditText
+                android:id="@+id/foodName"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="8dp"
@@ -69,8 +69,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
-            <TextView
-                android:id="@+id/enteritemprice"
+            <EditText
+                android:id="@+id/foodPrice"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="8dp"
@@ -79,17 +79,17 @@
                 android:background="@drawable/edittextshape"
                 android:elevation="5dp"
                 android:hint="Food Item Price"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:outlineSpotShadowColor="@color/textcolor"
                 android:paddingLeft="15dp"
                 android:paddingTop="12dp"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/enterfoodname" />
+                app:layout_constraintTop_toBottomOf="@+id/foodName" />
 
             <TextView
-                android:id="@+id/selectimage"
+                android:id="@+id/selectImage"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:layout_marginTop="8dp"
@@ -100,9 +100,9 @@
                 android:paddingRight="15dp"
                 android:text="Select Image"
                 android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="@+id/enteritemprice"
-                app:layout_constraintStart_toStartOf="@+id/enteritemprice"
-                app:layout_constraintTop_toBottomOf="@+id/enteritemprice" />
+                app:layout_constraintEnd_toEndOf="@+id/foodPrice"
+                app:layout_constraintStart_toStartOf="@+id/foodPrice"
+                app:layout_constraintTop_toBottomOf="@+id/foodPrice" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView8"
@@ -110,12 +110,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 app:cardCornerRadius="15dp"
-                app:layout_constraintEnd_toEndOf="@id/selectimage"
-                app:layout_constraintStart_toStartOf="@id/selectimage"
-                app:layout_constraintTop_toBottomOf="@id/selectimage">
+                app:layout_constraintEnd_toEndOf="@id/selectImage"
+                app:layout_constraintStart_toStartOf="@id/selectImage"
+                app:layout_constraintTop_toBottomOf="@id/selectImage">
 
                 <ImageView
-                    android:id="@+id/selectedimage"
+                    android:id="@+id/selectedImage"
                     android:layout_width="175dp"
                     android:layout_height="110dp"
                     android:scaleType="fitCenter"
@@ -135,11 +135,11 @@
                 android:paddingStart="12dp"
                 android:text="Short Discription"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@+id/selectimage"
+                app:layout_constraintStart_toStartOf="@+id/selectImage"
                 app:layout_constraintTop_toBottomOf="@+id/cardView8" />
 
             <EditText
-                android:id="@+id/discription"
+                android:id="@+id/description"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -164,8 +164,8 @@ ut labore et dolore magna aliqua. Ut enim a"
                 android:paddingStart="12dp"
                 android:text="Ingridents"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@+id/discription"
-                app:layout_constraintTop_toBottomOf="@+id/discription" />
+                app:layout_constraintStart_toStartOf="@+id/description"
+                app:layout_constraintTop_toBottomOf="@+id/description" />
 
             <EditText
                 android:id="@+id/ingredint"
@@ -178,6 +178,7 @@ ut labore et dolore magna aliqua. Ut enim a"
                 app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/AddItemButton"
                 android:layout_width="157dp"
                 android:layout_height="57dp"
                 android:layout_marginTop="26dp"
