@@ -54,7 +54,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation("com.google.firebase:firebase-auth")
     implementation(platform("io.github.jan-tennert.supabase:bom:3.1.4"))
-
+    implementation("com.github.bumptech.glide:glide:5.0.5")
     implementation("io.github.jan-tennert.supabase:postgrest-kt")   // Database
     implementation("io.github.jan-tennert.supabase:storage-kt")     // File/Image Storage
     implementation("io.github.jan-tennert.supabase:auth-kt")        // Authentication
