@@ -2,27 +2,21 @@ package com.example.adminAppKhanPaan
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.adminAppKhanPaan.databinding.ActivitySignupBinding
-import com.example.adminAppKhanPaan.model.UserModel
-import com.google.firebase.Firebase
+import com.example.adminAppKhanPaan.model.AdminModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.database
+import io.github.jan.supabase.postgrest.postgrest
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class SignupActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var email: String
-    private lateinit var password: String
-    private lateinit var userName: String
-    private lateinit var nameOfRestaurant: String
-    private lateinit var database: DatabaseReference
-
 
     private val binding: ActivitySignupBinding by lazy {
         ActivitySignupBinding.inflate(layoutInflater)
@@ -32,63 +26,111 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        auth= Firebase.auth
-
-        database= Firebase.database.reference
-
+        auth = FirebaseAuth.getInstance()
 
         binding.createUserButton.setOnClickListener {
-            userName=binding.name.text.toString().trim()
-            nameOfRestaurant=binding.resturantName.text.toString().trim()
-            email=binding.emailOrPhone.text.toString().trim()
-            password=binding.password.text.toString().trim()
+            val userName          = binding.name.text.toString().trim()
+            val nameOfRestaurant  = binding.resturantName.text.toString().trim()
+            val email             = binding.emailOrPhone.text.toString().trim()
+            val password          = binding.password.text.toString().trim()
+            val location          = binding.listoflocation.text.toString().trim()
 
-            if(userName.isBlank() || nameOfRestaurant.isBlank() || email.isBlank() || password.isBlank()){
-                Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
-            }else{
-                CreateAccount(email,password)
+            when {
+                userName.isBlank()         -> binding.name.error = "Required"
+                nameOfRestaurant.isBlank() -> binding.resturantName.error = "Required"
+                email.isBlank()            -> binding.emailOrPhone.error = "Required"
+                password.isBlank()         -> binding.password.error = "Required"
+                password.length < 6        -> binding.password.error = "Min 6 characters"
+                else -> createAccount(email, password, userName, nameOfRestaurant, location)
             }
-
         }
 
         binding.alreadyHaveAccountButton.setOnClickListener {
-            val intent = Intent(this, SignupActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, LoginActivity::class.java))  // ← fixed (was SignupActivity)
         }
 
-        val listoflocation = arrayOf("Jaipur","Ujjain","Indore","Delhi","Mumbai","Agra")
-
+        val listOfLocation = arrayOf("Jaipur", "Ujjain", "Indore", "Delhi", "Mumbai", "Agra")
         val adapter = ArrayAdapter(
             this,
             android.R.layout.simple_dropdown_item_1line,
-            listoflocation
+            listOfLocation
         )
-
         binding.listoflocation.setAdapter(adapter)
     }
-    private fun CreateAccount(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email,password)
-            .addOnCompleteListener(this){task->
-                if(task.isSuccessful){
-                    Toast.makeText(this, "Account Created Successfully", Toast.LENGTH_SHORT).show()
-                    saveUserData()
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }else{
-                    Toast.makeText(this, "Account Creation Failed", Toast.LENGTH_SHORT).show()
-                    Log.d("Account","createAccount:failure",task.exception)
+
+    private fun createAccount(
+        email: String,
+        password: String,
+        userName: String,
+        restaurantName: String,
+        location: String
+    ) {
+        binding.createUserButton.isEnabled = false
+        binding.createUserButton.text = "Creating..."
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val userId = auth.currentUser?.uid ?: return@addOnCompleteListener
+                    // ── Save admin to Supabase ─────────────────────────────
+                    saveAdminToSupabase(userId, userName, email, restaurantName, location)
+                } else {
+                    binding.createUserButton.isEnabled = true
+                    binding.createUserButton.text = "Create Account"
+                    Toast.makeText(
+                        this,
+                        "Failed: ${task.exception?.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
     }
 
-    private fun saveUserData(){
-        userName=binding.name.text.toString().trim()
-        nameOfRestaurant=binding.resturantName.text.toString().trim()
-        email=binding.emailOrPhone.text.toString().trim()
-        password=binding.password.text.toString().trim()
-        val user= UserModel(userName,nameOfRestaurant,email,password)
-        val userId = FirebaseAuth.getInstance().currentUser!!.uid
-        database.child("user").child(userId).setValue(user)
+    private fun saveAdminToSupabase(
+        userId: String,
+        name: String,
+        email: String,
+        restaurantName: String,
+        location: String
+    ) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                SupabaseClient.client.postgrest
+                    .from("admin_users")
+                    .upsert(
+                        AdminModel(
+                            id             = userId,
+                            name           = name,
+                            email          = email,
+                            restaurantName = restaurantName,
+                            location       = location,
+                            role           = "admin"
+                        )
+                    )
+
+                withContext(Dispatchers.Main) {
+                    binding.createUserButton.isEnabled = true
+                    binding.createUserButton.text = "Create Account"
+                    Toast.makeText(
+                        this@SignupActivity,
+                        "Account created successfully!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    startActivity(Intent(this@SignupActivity, LoginActivity::class.java))
+                    finish()
+                }
+
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    binding.createUserButton.isEnabled = true
+                    binding.createUserButton.text = "Create Account"
+                    Toast.makeText(
+                        this@SignupActivity,
+                        "Failed to save: ${e.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
     }
 }
