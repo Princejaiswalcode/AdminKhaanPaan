@@ -8,6 +8,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.adminAppKhanPaan.databinding.ActivityMainBinding
 import com.example.adminAppKhanPaan.model.OrderDetails
+import com.google.firebase.auth.FirebaseAuth
+import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.postgrest.postgrest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -42,9 +44,40 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, orderdispatchActivity::class.java))
         }
         binding.logout.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
 
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    // 🔹 Logout from Supabase
+                    SupabaseClient.client.auth.signOut()
+
+                    // 🔹 Logout from Firebase
+                    FirebaseAuth.getInstance().signOut()
+
+                    withContext(Dispatchers.Main) {
+
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Logged out successfully",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                        finish()
+                    }
+
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Logout failed: ${e.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        }
         // ── Click on Pending section (text + number both) ──────────────────
         binding.textView6.setOnClickListener {
             startActivity(Intent(this, PendingOrderActivity::class.java))
