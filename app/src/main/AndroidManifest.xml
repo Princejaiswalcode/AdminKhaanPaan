@@ -38,6 +38,12 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".PendingOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CompletedOrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
