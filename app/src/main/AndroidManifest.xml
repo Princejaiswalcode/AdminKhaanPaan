@@ -13,45 +13,59 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Admin">
-        <activity
-            android:name=".profileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".orderdispatchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CreateNewAdminActivity"
-            android:exported="false" />
-        <activity
-            android:name=".allitemActivity"
-            android:exported="false" />
-        <activity
-            android:name=".additemActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignupActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PendingOrderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CompletedOrderActivity"
-            android:exported="false" />
+
+        <!-- LAUNCHER — Splash Screen -->
         <activity
             android:name=".SplashScreenActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Admin">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!-- Login — must be exported true so splash can open it -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".SignupActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".profileActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".orderdispatchActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".CreateNewAdminActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".allitemActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".additemActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".PendingOrderActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".CompletedOrderActivity"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
