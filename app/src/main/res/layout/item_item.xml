@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Rs 35"
-                android:textColor="@color/textcolor"
+                android:textColor="@color/green_button"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/cardView2"
                 app:layout_constraintStart_toEndOf="@+id/cardView2" />
