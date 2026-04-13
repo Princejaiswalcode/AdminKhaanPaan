@@ -15,11 +15,80 @@
       },
       "oauth_client": [
         {
+          "client_id": "693380119693-asul22p4itcam47n8voc61c2icnmqg8m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adminAppKhanPaan",
+            "certificate_hash": "95488665cf2ccbdc1a1b7238424282c9b2724d4c"
+          }
+        },
+        {
+          "client_id": "693380119693-kq7slt314lu62dhn1j000dl8tc23qmif.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adminAppKhanPaan",
+            "certificate_hash": "230ebee3df48cfc8bb97f7a86ac224cc8c5a84b3"
+          }
+        },
+        {
           "client_id": "693380119693-mn5jcsspuggrlds91d7pbt1dnv366tf2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.adminAppKhanPaan",
             "certificate_hash": "4182e63eb58cdba70b12d8eff5e02e56f04b6955"
+          }
+        },
+        {
+          "client_id": "693380119693-brh43vc6anrrvqgi9seclaort19udf3g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOJU906qRrWK4zhmAvuOh_O0rDVu-cE6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693380119693-brh43vc6anrrvqgi9seclaort19udf3g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693380119693:android:359d601d21374f74cdf6c4",
+        "android_client_info": {
+          "package_name": "com.example.gharkakhana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693380119693-79rgo5dgcg6rehplld363798jms5kllm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gharkakhana",
+            "certificate_hash": "4182e63eb58cdba70b12d8eff5e02e56f04b6955"
+          }
+        },
+        {
+          "client_id": "693380119693-hqotsa4fqk617v0okpabtlahroau30fp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gharkakhana",
+            "certificate_hash": "95488665cf2ccbdc1a1b7238424282c9b2724d4c"
+          }
+        },
+        {
+          "client_id": "693380119693-imm7ejkr07jkgs03lvld55a1fshbfqf0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gharkakhana",
+            "certificate_hash": "230ebee3df48cfc8bb97f7a86ac224cc8c5a84b3"
           }
         },
         {

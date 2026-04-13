@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
 
-        binding.loginButton.setOnClickListener {
+        binding.loginbutton.setOnClickListener {
             val email    = binding.email.text.toString().trim()
             val password = binding.password.text.toString().trim()
 

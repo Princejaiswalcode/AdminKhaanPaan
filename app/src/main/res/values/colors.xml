@@ -11,4 +11,12 @@
     <color name="endcolor">#15BE77</color>
 
 
+        <color name="textColor">#1FC57A</color>
+        <color name="startColor">#53E88B</color>
+        <color name="endColor">#15BE77</color>
+        <color name="bottom_navigation">#FFF2CC</color>
+        <color name="green_button">#65A81F</color>
+
+
+
 </resources>
