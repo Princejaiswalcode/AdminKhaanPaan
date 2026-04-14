@@ -13,9 +13,9 @@ to a shared Supabase backend.
 
 | Name               | Role                                                                         |
 |--------------------|------------------------------------------------------------------------------|
-| **Mustafa qureshi** | Frontend developer                                                          |
 | **Millind Amb**    | Backend developer, Database                                                  |
 | **Prince Jaiswal** | Frontend developer,UI Figma ,Database Design, Documentation and artifacts    |
+| **Mustafa qureshi** | Frontend developer                                                          |
 | **Ritika Panwar**  | UI Sketches, Marketing                                                       |
 
 ---
